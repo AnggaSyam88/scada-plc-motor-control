@@ -18,7 +18,7 @@ A Software-in-the-Loop (SITL) simulation demonstrating an industrial Motor Contr
 ## 📂 Repository Contents
 * `ladder_logic.st` : The OpenPLC program file containing the sequential logic and interlocks.
 * `hmi_dashboard.json` : The Node-RED flow export containing the Modbus nodes, logic functions, and UI elements.
-* `architecture_diagram.png` : High-level network topology.
+* `SystemTopology&NetworkArchitecture(ModbusTCP).jpg` : High-level network topology.
 
 ## 🚀 How to Run the Simulation
 ### Prerequisites
