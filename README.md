@@ -32,7 +32,7 @@ A Software-in-the-Loop (SITL) simulation demonstrating an industrial Motor Contr
 
 ## 📺 Live Demonstration
 Watch the full simulation and fault testing scenarios on my LinkedIn post: 
-(https://drive.google.com/file/d/1e7CvREMpU1ziyJH4cg7Q8XbnFtDAVxy-/view?usp=sharing)
+https://www.linkedin.com/posts/arinugrahasyam_industrialautomation-scada-plcprogramming-ugcPost-7473432911690498050-3YTX/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACiZHYwBu87IcbkurhsCUD-nVpTC71lwpL4
 
 ---
 *Designed for continuous learning in Industrial Automation, IIoT, and Control Systems Engineering.*
