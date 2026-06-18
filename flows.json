@@ -1,0 +1,410 @@
+[
+    {
+        "id": "3a8b3b22fdf4909a",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "6f0b18d032b8d836",
+        "type": "modbus-read",
+        "z": "3a8b3b22fdf4909a",
+        "name": "Baca Status Motor",
+        "topic": "",
+        "showStatusActivities": false,
+        "logIOActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "Coil",
+        "adr": "0",
+        "quantity": "4",
+        "rate": "500",
+        "rateUnit": "ms",
+        "delayOnStart": false,
+        "enableDeformedMessages": false,
+        "startDelayTime": "",
+        "server": "72f910d3dbc55579",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "x": 290,
+        "y": 260,
+        "wires": [
+            [
+                "8ee6a8b34f34a152",
+                "ab2cc1f14467716a",
+                "c1353daaee9113d4"
+            ],
+            [
+                "8ee6a8b34f34a152",
+                "ab2cc1f14467716a",
+                "c1353daaee9113d4"
+            ]
+        ]
+    },
+    {
+        "id": "e020636c832f5e10",
+        "type": "ui_button",
+        "z": "3a8b3b22fdf4909a",
+        "name": "",
+        "group": "3cfae2f57a7ee72f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "START SEKUENSIAL",
+        "tooltip": "",
+        "color": "White",
+        "bgcolor": "#4CAF50",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 320,
+        "y": 460,
+        "wires": [
+            [
+                "b14dc7455e19dff8"
+            ]
+        ]
+    },
+    {
+        "id": "b14dc7455e19dff8",
+        "type": "modbus-write",
+        "z": "3a8b3b22fdf4909a",
+        "name": "",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "Coil",
+        "adr": "2",
+        "quantity": "1",
+        "server": "72f910d3dbc55579",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 560,
+        "y": 460,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "8ee6a8b34f34a152",
+        "type": "function",
+        "z": "3a8b3b22fdf4909a",
+        "name": "Ekstrak Motor 1",
+        "func": "// Array Modbus: msg.payload[0] adalah Motor 1, [1] adalah Motor 2, [3] adalah Fault\nmsg.payload = msg.payload[0];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 260,
+        "wires": [
+            [
+                "7b106ee6420041fd"
+            ]
+        ]
+    },
+    {
+        "id": "7b106ee6420041fd",
+        "type": "ui_led",
+        "z": "3a8b3b22fdf4909a",
+        "order": 1,
+        "group": "feaf47928c7eb3cc",
+        "width": 0,
+        "height": 0,
+        "label": "Motor 1 (Utama)",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 710,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "ab2cc1f14467716a",
+        "type": "function",
+        "z": "3a8b3b22fdf4909a",
+        "name": "Ekstrak Motor 2",
+        "func": "msg.payload = msg.payload[1];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 320,
+        "wires": [
+            [
+                "2d0dcc159b5a7d24"
+            ]
+        ]
+    },
+    {
+        "id": "07b2ebf3f00ee1ac",
+        "type": "ui_button",
+        "z": "3a8b3b22fdf4909a",
+        "name": "",
+        "group": "3cfae2f57a7ee72f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "STOP MESIN",
+        "tooltip": "",
+        "color": "white",
+        "bgcolor": "#F44336",
+        "className": "",
+        "icon": "",
+        "payload": "false",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 340,
+        "y": 540,
+        "wires": [
+            [
+                "b14dc7455e19dff8"
+            ]
+        ]
+    },
+    {
+        "id": "2d0dcc159b5a7d24",
+        "type": "ui_led",
+        "z": "3a8b3b22fdf4909a",
+        "order": 2,
+        "group": "feaf47928c7eb3cc",
+        "width": 0,
+        "height": 0,
+        "label": "Motor 2 (Sekuensial)",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 710,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "7106c9b211ab7f80",
+        "type": "ui_switch",
+        "z": "3a8b3b22fdf4909a",
+        "name": "",
+        "label": "Simulasi Gangguan (Fault)",
+        "tooltip": "",
+        "group": "3cfae2f57a7ee72f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 300,
+        "y": 620,
+        "wires": [
+            [
+                "d152df7e6459f2d5"
+            ]
+        ]
+    },
+    {
+        "id": "d152df7e6459f2d5",
+        "type": "modbus-write",
+        "z": "3a8b3b22fdf4909a",
+        "name": "",
+        "showStatusActivities": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "unitid": "",
+        "dataType": "Coil",
+        "adr": "3",
+        "quantity": "1",
+        "server": "72f910d3dbc55579",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": false,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 580,
+        "y": 620,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c1353daaee9113d4",
+        "type": "function",
+        "z": "3a8b3b22fdf4909a",
+        "name": "Ekstrak Fault",
+        "func": "msg.payload = msg.payload[3];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 380,
+        "wires": [
+            [
+                "dfbbdfd0f9f82e25"
+            ]
+        ]
+    },
+    {
+        "id": "dfbbdfd0f9f82e25",
+        "type": "ui_led",
+        "z": "3a8b3b22fdf4909a",
+        "order": 2,
+        "group": "feaf47928c7eb3cc",
+        "width": 0,
+        "height": 0,
+        "label": "Peringatan Interlock!",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#808080",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#ff0000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 710,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "72f910d3dbc55579",
+        "type": "modbus-client",
+        "name": "OpenPLC Local",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "127.0.0.1",
+        "tcpPort": 502,
+        "tcpType": "DEFAULT",
+        "serialPort": "/dev/ttyUSB",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": 9600,
+        "serialDatabits": 8,
+        "serialStopbits": 1,
+        "serialParity": "none",
+        "serialConnectionDelay": 100,
+        "serialAsciiResponseStartDelimiter": "0x3A",
+        "unit_id": 1,
+        "commandDelay": 1,
+        "clientTimeout": 1000,
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 2000,
+        "parallelUnitIdsAllowed": true,
+        "showErrors": false,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "3cfae2f57a7ee72f",
+        "type": "ui_group",
+        "name": "Panel Kendali",
+        "tab": "113f7ca87b1cee84",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "feaf47928c7eb3cc",
+        "type": "ui_group",
+        "name": "Status Indikator",
+        "tab": "113f7ca87b1cee84",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "113f7ca87b1cee84",
+        "type": "ui_tab",
+        "name": "HMI Motor Control",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "191cc4d88a0f8da4",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-modbus": "5.45.2",
+            "node-red-dashboard": "3.6.6",
+            "node-red-contrib-ui-led": "0.4.11"
+        }
+    }
+]
