@@ -3,7 +3,7 @@
 A Software-in-the-Loop (SITL) simulation demonstrating an industrial Motor Control Center (MCC). This project integrates a programmable logic controller (OpenPLC) with a supervisory dashboard (Node-RED) via Modbus TCP to manage sequential motor start-ups and emergency safety interlocks.
 
 ## 🏗️ System Architecture & Topologi
-*(Tambahkan gambar arsitektur Anda di sini dengan cara *drag-and-drop* file gambarnya ke dalam editor GitHub, atau gunakan sintaks `!https://github.com/AnggaSyam88/scada-plc-motor-control/blob/0b1146a0e57f036fcf68f323d0597b92b5fa1d4a/System%20Topology%20%26%20Network%20Architecture%20(Modbus%20TCP).jpg(System Topology & Network Architecture (Modbus TCP).jpg)`)*
+![Architecture Diagram](System Topology & Network Architecture (Modbus TCP).jpg)
 
 * **Control Layer (OT):** OpenPLC v4 executing IEC 61131-3 Ladder Diagram logic.
 * **Supervisory Layer (IT):** Node-RED providing a real-time Human-Machine Interface (HMI).
@@ -32,7 +32,7 @@ A Software-in-the-Loop (SITL) simulation demonstrating an industrial Motor Contr
 
 ## 📺 Live Demonstration
 Watch the full simulation and fault testing scenarios on my LinkedIn post: 
-**[Tautkan URL Postingan LinkedIn Anda di Sini]**
+(https://drive.google.com/file/d/1e7CvREMpU1ziyJH4cg7Q8XbnFtDAVxy-/view?usp=sharing)
 
 ---
 *Designed for continuous learning in Industrial Automation, IIoT, and Control Systems Engineering.*
